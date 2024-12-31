@@ -1,5 +1,5 @@
 # Use the Node.js official image as the base image
-FROM node:18-alpine
+FROM node:16-alpine
 
 # Set the working directory inside the container
 WORKDIR /usr/src/app
@@ -12,7 +12,7 @@ RUN npm install --legacy-peer-deps
 
 # Copy the rest of the application code to the working directory
 COPY . .
-RUN NODE_OPTIONS=--openssl-legacy-provider npm run build
+
 # Build the application
 RUN npm run build
 
